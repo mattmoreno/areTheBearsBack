@@ -34,7 +34,10 @@ class Game extends Component {
       .then(data => {
         this.setState({
           games: data,
-          myTeamGame: '2018110401'
+          myTeamGame: '2018120901',
+          week: 'REG13',
+          awayTeam: 'rams',
+          homeTeam: 'bears'
         })
       }, () => {
         this.setState({
@@ -91,10 +94,10 @@ class Game extends Component {
     }
 
     function DidMyTeamWin() {
-      if (myTeamGame.qtr === 'Final' && myTeam.score.T > opponent.score.T) {
+      if ((myTeamGame.qtr === 'Final' || myTeamGame.qtr === 'final overtime') && myTeam.score.T > opponent.score.T) {
         return <MyTeamWin />
       }
-      if (myTeamGame.qtr === 'Final' && myTeam.score.T < opponent.score.T) {
+      if ((myTeamGame.qtr === 'Final' || myTeamGame.qtr === 'final overtime') && myTeam.score.T < opponent.score.T) {
         return <MyTeamLoss />
       }
       return <MyTeamInGame />
@@ -102,14 +105,14 @@ class Game extends Component {
 
 
     function AwayScore() {
-      if (myTeamGame.qtr === 'Final') {
+      if (myTeamGame.qtr === 'Final' || myTeamGame.qtr === 'final overtime') {
         return <div className="score">{myTeamGame.away.score.T}</div>
       }
       return null
     }
 
     function HomeScore() {
-      if (myTeamGame.qtr === 'Final') {
+      if (myTeamGame.qtr === 'Final' || myTeamGame.qtr === 'final overtime') {
         return <div className="score">{myTeamGame.home.score.T}</div>
       }
       return null
@@ -149,7 +152,7 @@ class Game extends Component {
               </div>
 
               <div id="fullbox" className="fullbox">
-                <a href="https://www.nfl.com/gamecenter/2018110401/2018/REG9/bears@bills" target="_blank" rel="noopener noreferrer">Full Game Details</a>
+                <a href={'https://www.nfl.com/gamecenter/'+ this.state.myTeamGame+'/2018/'+ this.state.week +'/'+ this.state.awayTeam +'@'+ this.state.homeTeam} target="_blank" rel="noopener noreferrer">Full Game Details</a>
               </div>
 
             </div>
