@@ -34,9 +34,10 @@ class Game extends Component {
       .then(data => {
         this.setState({
           games: data,
-          myTeamGame: '2019010601',
-          week: 'POST18',
-          awayTeam: 'eagles',
+          myTeamGame: '2019090500',
+          year: '2019',
+          week: 'REG1',
+          awayTeam: 'packers',
           homeTeam: 'bears'
         })
       }, () => {
@@ -152,7 +153,7 @@ class Game extends Component {
               </div>
 
               <div id="fullbox" className="fullbox">
-                <a href={'https://www.nfl.com/gamecenter/'+ this.state.myTeamGame+'/2018/'+ this.state.week +'/'+ this.state.awayTeam +'@'+ this.state.homeTeam} target="_blank" rel="noopener noreferrer">Full Game Details</a>
+                <a href={'https://www.nfl.com/gamecenter/'+ this.state.myTeamGame+'/'+ this.state.year +'/'+ this.state.week +'/'+ this.state.awayTeam +'@'+ this.state.homeTeam} target="_blank" rel="noopener noreferrer">Full Game Details</a>
               </div>
 
             </div>
