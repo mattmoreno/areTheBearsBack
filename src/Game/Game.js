@@ -48,8 +48,8 @@ class Game extends Component {
   }
 
   render() {
-    if (this.state.requestFailed) return <img src={preloader} alt="Preloader" />
-    if (!this.state.games) return <img src={preloader} alt="Preloader" />
+    if (this.state.requestFailed) return null
+    if (!this.state.games) return null
 
     //console.log(this.state.games);
 
