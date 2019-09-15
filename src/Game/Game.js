@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Moment from 'react-moment';
-import preloader from '../images/preloader.svg';
+//çimport preloader from '../images/preloader.svg';
 
 const urlForUsername = 'http://www.nfl.com/liveupdate/scores/scores.json';
 
@@ -34,11 +34,11 @@ class Game extends Component {
       .then(data => {
         this.setState({
           games: data,
-          myTeamGame: '2019090500',
+          myTeamGame: '2019091511',
           year: '2019',
-          week: 'REG1',
-          awayTeam: 'packers',
-          homeTeam: 'bears'
+          week: 'REG2',
+          awayTeam: 'bears',
+          homeTeam: 'broncos'
         })
       }, () => {
         this.setState({
